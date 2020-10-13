@@ -1,13 +1,13 @@
-import fb_scraper.GlPageScraper;
+import frame.Window;
 
 public class GLRatingApp {
 
     public static void main(String[] args){
-        GlPageScraper scraper = new GlPageScraper();
-        try{
-            scraper.scrapFlavours();
-        } catch(InterruptedException e ) {
-            System.err.print(e);
-        }
+        GLRatingApp glRatingApp = new GLRatingApp();
+        glRatingApp.launch();
+    }
+
+    private void launch(){
+        new Window();
     }
 }
