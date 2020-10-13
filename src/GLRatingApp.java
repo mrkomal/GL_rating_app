@@ -1,6 +1,13 @@
-public class GLRatingApp{
+import fb_scraper.GlPageScraper;
+
+public class GLRatingApp {
 
     public static void main(String[] args){
-        System.out.print("Hello");
+        GlPageScraper scraper = new GlPageScraper();
+        try{
+            scraper.scrapFlavours();
+        } catch(InterruptedException e ) {
+            System.err.print(e);
+        }
     }
 }
