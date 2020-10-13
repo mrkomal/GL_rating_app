@@ -5,8 +5,10 @@ import javax.swing.*;
 
 public class Window implements IWindowProperties {
 
+    private JFrame window;
+
     public Window() {
-        JFrame window = new JFrame();
+        window = new JFrame();
         window.setSize(WINDOW_WIDTH, WINDOW_HEIGHT);
         window.setContentPane(new AppPanel(WINDOW_WIDTH, WINDOW_HEIGHT));
         window.setResizable(false);
