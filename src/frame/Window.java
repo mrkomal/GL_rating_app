@@ -2,12 +2,13 @@ package frame;
 
 import frame.panel.AppPanel;
 import javax.swing.*;
+import java.sql.SQLException;
 
 public class Window implements IWindowProperties {
 
     private JFrame window;
 
-    public Window() {
+    public Window() throws SQLException {
         window = new JFrame();
         window.setSize(WINDOW_WIDTH, WINDOW_HEIGHT);
         window.setContentPane(new AppPanel(WINDOW_WIDTH, WINDOW_HEIGHT));
