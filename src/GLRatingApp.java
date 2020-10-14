@@ -1,6 +1,13 @@
-public class GLRatingApp{
+import frame.Window;
+
+public class GLRatingApp {
 
     public static void main(String[] args){
-        System.out.print("Hello");
+        GLRatingApp glRatingApp = new GLRatingApp();
+        glRatingApp.launch();
+    }
+
+    private void launch(){
+        new Window();
     }
 }
