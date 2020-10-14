@@ -1,9 +1,12 @@
 package frame.panel;
 
+import controller.DisplayManager;
+
 import javax.swing.*;
 import java.awt.*;
+import java.sql.SQLException;
 
-public class AppPanel extends JPanel implements Runnable {
+public class AppPanel extends JPanel{
 
     private int width;
     private int height;
@@ -11,6 +14,7 @@ public class AppPanel extends JPanel implements Runnable {
     private JPanel rightPanel;
     private Color rightFragmentCol = Color.CYAN.brighter();
     private String rightFragmentTitle = "Rezultat:";
+    private JLabel iceCreamRate = new JLabel("Przyznana ocena:");
 
     private JPanel leftPanel;
     private Color leftFragmentCol = Color.LIGHT_GRAY;
@@ -21,7 +25,9 @@ public class AppPanel extends JPanel implements Runnable {
     private boolean isRunning = false;
     private Thread thread;
 
-    public AppPanel(int width, int height) {
+    private DisplayManager displayManager;
+
+    public AppPanel(int width, int height) throws SQLException {
         this.width = width;
         this.height = height;
         setSize(new Dimension(width, height));
@@ -31,25 +37,14 @@ public class AppPanel extends JPanel implements Runnable {
         init();
     }
 
-    @Override
-    public void addNotify() {
-        super.addNotify();
-
-        if(thread == null){
-            thread = new Thread(this,"AppThread");
-            thread.start();
-        }
-    }
-
-    @Override
-    public void run() {
-        System.out.print("Thread OK");
-    }
-
-    void init(){
+    void init() throws SQLException{
         setLayout(new BorderLayout());
+        displayManager = new DisplayManager();
+        displayManager.getInputData("aaa");
 
         rightPanel = new ScreenFragment(width/2-15, height, rightFragmentCol, rightFragmentTitle);
+        rightPanel.add(iceCreamRate);
+        iceCreamRate.setText(iceCreamRate.getText() + " aaa");
 
         leftPanel = new ScreenFragment(width/2, height, leftFragmentCol, leftFragmentTitle);
         leftPanel.add(iceCreamNameLabel);
