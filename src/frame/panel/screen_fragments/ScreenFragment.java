@@ -1,4 +1,4 @@
-package frame.panel;
+package frame.panel.screen_fragments;
 
 import javax.swing.*;
 import java.awt.*;

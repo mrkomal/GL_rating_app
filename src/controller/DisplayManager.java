@@ -12,8 +12,10 @@ public class DisplayManager {
         dbHandler = new DBHandler();
     }
 
-    public void getInputData(String input) throws SQLException {
-        dbHandler.getIceCreamID("Czekoladowe");
+    public String getInputData(String input) throws SQLException {
+        String output = "a";
+        int rate = dbHandler.getIceCreamID(input);
+        return output;
     }
     /*
     @Override
