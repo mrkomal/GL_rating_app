@@ -5,6 +5,8 @@ import frame.panel.screen_fragments.ScreenFragment;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.sql.SQLException;
 
 public class AppPanel extends JPanel{
@@ -86,6 +88,7 @@ public class AppPanel extends JPanel{
         leftPanel.add(iceCreamNameLabel);
         leftPanel.add(iceCreamNameField);
         leftPanel.add(checkButton);
+        checkButton.addActionListener(new checkButtonActionListener());
 
         JPanel spacePanelL = new JPanel();
         spacePanelL.setBackground(leftFragmentCol);
@@ -99,6 +102,7 @@ public class AppPanel extends JPanel{
         leftPanel.add(addIceCreamInfoLabel);
         leftPanel.add(addIceCreamInfoField);
         leftPanel.add(enterButton);
+        enterButton.addActionListener(new enterButtonActionListener());
 
         //bottom
         bottomPanel = new ScreenFragment(width, height/6, bottomFragmentCol, bottomFragmentTitle);
@@ -108,5 +112,21 @@ public class AppPanel extends JPanel{
         add( rightPanel, BorderLayout.EAST );
         add( leftPanel, BorderLayout.WEST );
         add( bottomPanel, BorderLayout.SOUTH);
+    }
+
+    class checkButtonActionListener implements ActionListener {
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            System.out.println("Clicked check");
+        }
+    }
+
+    class enterButtonActionListener implements ActionListener {
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            System.out.println("Clicked enter");
+        }
     }
 }
